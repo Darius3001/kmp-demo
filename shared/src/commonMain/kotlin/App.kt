@@ -32,7 +32,15 @@ fun App() {
                     viewModel.inc()
                 }
             ) {
-                Text(viewModel.state.value.toString())
+                Text("in ViewModel: ${viewModel.state.value}")
+            }
+
+            Button(
+                onClick = {
+                    recreationUnsafeNum.value++
+                }
+            ) {
+                Text("Recreation unsafe: ${recreationUnsafeNum.value}")
             }
 
             Button(
@@ -41,15 +49,6 @@ fun App() {
                 }
             ) {
                 Text("Volatile: $volatileNum")
-            }
-
-
-            Button(
-                onClick = {
-                    recreationUnsafeNum.value++
-                }
-            ) {
-                Text("Recreation unsafe: ${recreationUnsafeNum.value}")
             }
         }
     }
@@ -74,5 +73,3 @@ class MainViewModel : ViewModel() {
         }
     }
 }
-
-expect fun getPlatformName(): String

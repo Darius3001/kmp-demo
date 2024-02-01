@@ -3,16 +3,17 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
-
-actual fun getPlatformName(): String = "Android"
 
 val recreatorFlow = MutableSharedFlow<Unit>()
 
 @Composable fun MainView() {
     val scope = rememberCoroutineScope()
-    Column {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         App()
 
