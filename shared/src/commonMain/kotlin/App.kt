@@ -15,9 +15,7 @@ import dev.icerock.moko.mvvm.viewmodel.ViewModel
 
 @Composable
 fun App() {
-
     val viewModel = MainViewModel.getInstance()
-
     val recreationUnsafeNum = mutableStateOf(0)
 
     MaterialTheme {
@@ -64,12 +62,10 @@ class MainViewModel : ViewModel() {
 
     companion object {
         private var instance: MainViewModel? = null
-
         fun getInstance(): MainViewModel {
-
             if (instance != null) return instance as MainViewModel
 
-            return MainViewModel().apply { instance = this }
+            return MainViewModel().also { instance = it }
         }
     }
 }
